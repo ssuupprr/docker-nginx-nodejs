@@ -6,9 +6,9 @@ ARG S6_OVERLAY_VERSION=3.1.2.1
 
 RUN apk add --update --no-cache bind-tools curl xz nginx nodejs && \
     curl -sSL https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-noarch.tar.xz \
-    | tar -C / -xvf s6-overlay-noarch.tar.xz && \
+    | tar -xvJ -C / && \
     curl -sSL https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-x86_64.tar.xz \
-    | tar -C / -xvf s6-overlay-x86_64.tar.xz && \
+    | tar -xvJ -C / && \
     apk del curl && \
     corepack enable
 
